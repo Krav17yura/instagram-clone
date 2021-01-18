@@ -1,0 +1,66 @@
+.signupPage-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250,250,250) ;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.signupForm-container{
+    margin: 20px 10px 10px 10px;
+    text-align: center;
+    max-width: 280px;
+    background-color: white;
+    border: 1px solid rgb(219,219,219);
+    padding: 0 30px 30px 30px;
+}
+
+.signupForm-container > img {
+    width: 180px;
+}
+
+.signupPage-headerTitle{
+    position: relative;
+    bottom: 20px;
+    font-weight:  700;
+    font-size: 17px;
+    text-align: center;
+    margin: 0;
+    color: rgb(157,146,142);
+}
+
+.signupPage-footerText{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgb(149,166,187);
+}
+
+.signupPage-footerText > a{
+    text-decoration: none;
+    color: rgb(149,166,187);
+    font-weight: 500;
+}
+
+.signupRedirectBlock{
+    width: 300px;
+    margin: 10px 0 20px 0;
+    background-color: white;
+    border: 1px solid rgb(219,219,219);
+    padding: 20px;
+    text-align: center;
+}
+.signupRedirectBlock > a{
+    text-decoration: none;
+    color: rgb(82,149,247)
+}
+.signupRedirectBlock > a:hover{
+    color: rgb(51, 110, 193)
+}
+
+
+
+

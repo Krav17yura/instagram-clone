@@ -1,0 +1,63 @@
+.loginPage-container{
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    background-color: rgb(250,250,250) ;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+@media(max-width:880px )  {
+    .loginPage-container{
+        flex-direction: column;
+    }
+    .loginPage-photo__content{
+        display: none;
+    }
+}
+
+.loginPage-photo__content{
+    position: relative;
+}
+.loginPage-photo__secondary{
+
+    position: absolute;
+    bottom: 92px;
+    right: 64px;
+}
+.loginPage-photo__secondary > img{
+    opacity:1;
+    height: 425px;
+}
+
+.loginForm-container{
+    text-align: center;
+    max-width: 280px;
+    background-color: white;
+    border: 1px solid rgb(219,219,219);
+    padding: 0 30px 30px 30px;
+    margin: 10px 0 20px 0;
+}
+.loginForm-container > img{
+    animation: loader 1.5s infinite;
+    width: 180px;
+}
+
+
+
+.redirectBlock{
+    margin: 10px 0 20px 0;
+    max-width: 300px;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid rgb(219,219,219);
+    padding: 20px;
+    text-align: center;
+}
+.redirectBlock > a{
+    text-decoration: none;
+    color: rgb(82,149,247)
+}
+.redirectBlock > a:hover{
+    color: rgb(51, 110, 193)
+}
