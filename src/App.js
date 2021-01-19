@@ -2,7 +2,7 @@ import React from 'react'
 import {Switch, Route} from "react-router-dom";
 import {SignUpPage} from "./redux/pages/SignUpPage";
 import {LoginPage} from "./redux/pages/LoginPage";
-import {PrivateRoute} from "./redux/components/PrivateRoute";
+import {PrivateRoute} from "./components/PrivateRoute";
 import {HomePage} from "./redux/pages/HomePage";
 import {NotFoundPage} from "./redux/pages/NotFoundPage";
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {SignUpForm} from "../../components/forms/SignUpForm";
+import {SignUpForm} from "../../../components/forms/SignUpForm";
 import './style.css'
 import {signup} from "../../ducks/auth/actionCreator";
 import {useDispatch, useSelector} from "react-redux";

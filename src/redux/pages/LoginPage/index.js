@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './style.css'
-import {LoginForm} from "../../components/forms/LoginForm";
+import {LoginForm} from "../../../components/forms/LoginForm";
 import {useDispatch, useSelector} from "react-redux";
 import {login} from "../../ducks/auth/actionCreator";
 import {Link} from "react-router-dom";
