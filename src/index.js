@@ -12,13 +12,13 @@ import {authInfoSuccess} from "./redux/ducks/auth/actionCreator";
 projectAuth.onAuthStateChanged(user => {
     store.dispatch(authInfoSuccess(user))
     ReactDOM.render(
-        <React.StrictMode>
+        // <React.StrictMode>
             <Provider store={store}>
                 <BrowserRouter>
                     <App/>
                 </BrowserRouter>
-            </Provider>
-        </React.StrictMode>,
+            </Provider>,
+        // </React.StrictMode>,
         document.getElementById('root')
     );
 })

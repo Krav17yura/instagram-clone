@@ -1,10 +1,10 @@
 import React from 'react'
 import {Switch, Route} from "react-router-dom";
-import {SignUpPage} from "./redux/pages/SignUpPage";
-import {LoginPage} from "./redux/pages/LoginPage";
+import {SignUpPage} from "./pages/SignUpPage";
+import {LoginPage} from "./pages/LoginPage";
 import {PrivateRoute} from "./components/PrivateRoute";
-import {HomePage} from "./redux/pages/HomePage";
-import {NotFoundPage} from "./redux/pages/NotFoundPage";
+import {HomePage} from "./pages/HomePage";
+import {NotFoundPage} from "./pages/NotFoundPage";
 
 export const App = () => {
     return (

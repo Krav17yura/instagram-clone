@@ -1,0 +1,113 @@
+.userPageContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.userPageHeader {
+    display: flex;
+    padding: 0 20px;
+}
+
+.userPageHeaderAvatar {
+    width: 28%;
+    margin-right: 30px;
+}
+
+.userPageHeaderAvatar > div {
+    width: 150px;
+    height: 150px;
+}
+
+.userPageHeaderInformation {
+    width: 100%;
+}
+
+.userPageHeaderInformationSettingBlock {
+    display: flex;
+    align-items: center;
+}
+
+.userPageHeaderInformationSettingBlock > h2 {
+    font-weight: 350;
+    font-size: 28px;
+    color: rgb(91, 91, 91);
+    line-height: 32px;
+    margin: -6px 25px -6px 0;
+}
+
+
+.userPageHeaderButton > button {
+    border-radius: 5px;
+    font-size: 14px;
+    color: rgb(110, 109, 109);
+    font-weight: 700;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(219, 219, 219);
+    padding: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.userPageHeaderButton > button:hover {
+    background-color: #dbdbdd;
+}
+
+
+.userPageHeaderInformationEditProfileButton {
+    width: 100%;
+    display: none;
+}
+
+.userPageHeaderInformationEditProfileButton > button {
+    width: 100%;
+}
+
+
+.profileStatListContainerMobile {
+    display: none;
+}
+
+
+.userPageNavigationContainer {
+    margin-top: 30px;
+}
+
+
+
+@media (max-width: 700px) {
+    .userPageContainer {
+        margin-top: 20px;
+    }
+
+    .profileStatListContainer {
+        display: none;
+    }
+
+    .profileStatListContainerMobile {
+        display: block;
+    }
+
+    .userPageHeaderInformationSettingBlock > button {
+        display: none;
+    }
+
+    .userPageHeaderAvatar {
+        width: 75px;
+    }
+
+    .userPageHeaderAvatar > div {
+        width: 70px;
+        height: 70px;
+    }
+
+    .userPageHeaderInformationEditProfileButton {
+        display: block;
+    }
+
+    .userPageNavigationContainer {
+        margin-top: 0;
+    }
+}
+
+
+

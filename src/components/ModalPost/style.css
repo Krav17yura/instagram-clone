@@ -1,0 +1,106 @@
+.modalPostContainer {
+    max-width: 1000px;
+    display: flex;
+}
+
+.modalPostImgContainer {
+    width: 40vw;
+    max-width: 600px;
+}
+
+.modalPostImgContainer > img{
+    width: 100%;
+    height: 100%;
+}
+
+.modalPostCommentContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    max-width: 400px;
+}
+
+.modalPostCommentHeader{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.modalPostUser{
+    display: flex;
+    align-items: center;
+}
+
+.modalPostUserUserInfo{
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+}
+
+.modalPostUserUserInfo > a {
+    text-decoration: none;
+    color: rgb(113, 113, 113);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.modalPostUserUserInfo > a:hover {
+    text-decoration: underline;
+}
+
+.modalPostUserUserInfo > span {
+    color: rgb(150, 150, 150);
+    font-size: 14px;
+}
+
+
+
+
+
+
+/*form*/
+
+.modalPostCommentBlock {
+    margin-top: auto;
+    height: 50px;
+    border-top: 1px solid rgb(224, 224, 224);
+}
+
+.modalPostCommentBlock > form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postCommentInputBlock {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.postCommentInputBlock > input {
+    padding: 16px;
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+.modalPostCommentBlock > form > button {
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(61, 174, 247);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modalPostCommentBlock > form > button:hover {
+    color: rgb(155, 204, 243);
+}
+
+.modalPostCommentBlock > form > button:disabled {
+    color: rgb(165, 165, 245);
+    cursor: inherit;
+}

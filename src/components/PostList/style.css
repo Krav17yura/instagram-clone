@@ -1,0 +1,125 @@
+/*POST*/
+.postList {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.postListItem {
+    margin-bottom: 40px;
+}
+
+.post {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 10px;
+    max-width: 650px;
+}
+
+.postHeader {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postHeaderUserInfo > a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: rgb(113, 113, 113);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.postHeaderUserInfo > a:hover {
+    text-decoration: underline;
+}
+
+
+.postMedia > img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.postFooterButtons {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.postFooterButtonList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.postCountView {
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 13px;
+    color: rgb(108, 108, 108);
+}
+
+
+.postDescription {
+    padding: 0;
+    margin-left: 15px;
+
+}
+
+.postDescription > a {
+
+    text-decoration: none;
+    color: rgb(113, 113, 113);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.postDescription > a:hover {
+    text-decoration: underline;
+}
+
+.postCommentBlock {
+    margin-top: 10px;
+    height: 50px;
+    border-top: 1px solid rgb(224, 224, 224);
+}
+
+.postCommentBlock > form {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.postCommentInputBlock {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.postCommentInputBlock > input {
+    padding: 16px;
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+.postCommentBlock > form > button {
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(61, 174, 247);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.postCommentBlock > form > button:hover {
+    color: rgb(155, 204, 243);
+}
+
+.postCommentBlock > form > button:disabled {
+    color: rgb(165, 165, 245);
+    cursor: inherit;
+}

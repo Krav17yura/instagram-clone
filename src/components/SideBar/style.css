@@ -1,0 +1,101 @@
+.sideBarHomePage {
+    max-width: 410px;
+    height:100%;
+    padding: 20px 0;
+    position: absolute;
+    right: 0;
+}
+
+.sideBarContainer {
+    position: sticky;
+    top: 106px;
+}
+
+.sideBarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sideBarUser {
+    display: flex;
+    align-items: center;
+}
+
+.sideBarUserInfo {
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+}
+
+.sideBarUserInfo > a {
+    text-decoration: none;
+    color: rgb(113, 113, 113);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sideBarUserInfo > a:hover {
+    text-decoration: underline;
+}
+
+.sideBarUserInfo > span {
+    color: rgb(150, 150, 150);
+    font-size: 14px;
+}
+
+.sideBarLink > a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0095f6;
+}
+
+.sideBarLink > a:hover {
+    color: #a0aaae;
+}
+
+.recommendationTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recommendationTitle > span {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(143, 143, 143);
+}
+
+.recommendationTitle > a {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: rgb(91, 91, 91);
+}
+
+.recommendationList {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+
+}
+
+.recommendationListItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+.postHeaderUserInfo {
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 980px) {
+    .sideBarHomePage {
+        display: none;
+    }
+}
