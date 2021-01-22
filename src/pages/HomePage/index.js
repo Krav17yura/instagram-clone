@@ -16,16 +16,12 @@ import {UserHistoryList} from "../../components/UserHistoryList";
 import {Footer} from "../../components/Footer";
 
 
-export const HomePage = (props) => {
+export const HomePage = () => {
     const dispatch = useDispatch();
     const {currentUser} = useSelector(state => state.reUser);
 
     const handleLogout = () => {
-        const {history} = props;
         dispatch(logout())
-            .then(() => history.push('/login'))
-            .catch(() => {
-            });
     }
 
     React.useEffect(() => {

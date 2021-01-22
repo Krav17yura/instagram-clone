@@ -39,11 +39,9 @@ export const LoginPage = (props) => {
     }, [index]);
 
     const handleSubmit = values => {
-        const {email, password} = values;
         const {history} = props;
-        dispatch(login(email, password))
-            .then(() => history.push('/home'))
-            .catch((e) => console.log(e))
+        const {email, password} = values
+        dispatch(login({email, password, history}))
     }
 
 

@@ -6,7 +6,7 @@ import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import Avatar from "@material-ui/core/Avatar";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {HeaderNavigationListItem} from "./HeaderNavigationListItem";
 
 
@@ -14,9 +14,12 @@ export const Header = ({user}) => {
     return (
         <div className={'header'}>
             <div className="headerContainer">
-                <div className={'headerLogo'}>
-                    <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="logo"/>
-                </div>
+                <Link to={"/home"}>
+                    <div className={'headerLogo'}>
+                        <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                             alt="logo"/>
+                    </div>
+                </Link>
                 <div className="searchBlock">
                     <SearchForm/>
                 </div>

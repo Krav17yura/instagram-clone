@@ -9,6 +9,10 @@ const SignupSchema = Yup.object().shape({
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
+    nickName: Yup.string()
+        .min(5, 'Too Short!')
+        .max(20, 'Too Long!')
+        .required('Required'),
     password: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
@@ -23,6 +27,7 @@ export const SignUpForm = ({onSubmit, inProgress, onError}) => {
     const initialValue = {
         fullName: '',
         logoUrl: '',
+        nickName: '',
         password: '',
         email: '',
     }
@@ -53,6 +58,11 @@ export const SignUpForm = ({onSubmit, inProgress, onError}) => {
                         <Field name="fullName" type='text' placeholder="Повне ім'я" className={'signupForm-input'}/>
                         {errors.fullName && touched.fullName ? (
                             <span className={'signupForm-error'}>{errors.fullName}</span>
+                        ) : null}
+
+                        <Field name="nickName" type='text' placeholder="Ім'я користувача" className={'signupForm-input'}/>
+                        {errors.nickName && touched.nickName ? (
+                            <span className={'signupForm-error'}>{errors.nickName}</span>
                         ) : null}
 
                         <Field name="logoUrl" type='text' placeholder="Посилання на фотографію (опціонально)"

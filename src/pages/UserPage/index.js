@@ -14,7 +14,7 @@ import GridOnOutlinedIcon from '@material-ui/icons/GridOnOutlined';
 import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 
-
+import {useSelector} from "react-redux";
 
 import {Footer} from "../../components/Footer";
 import {ProfileStatList} from "../../components/ProfileStatList";
@@ -22,7 +22,9 @@ import {UserPagePostList} from "../../components/UserPagePostList";
 
 import './style.css'
 
+
 export const UserPage = () => {
+    const {currentUser} = useSelector(state => state.reUser);
     const [value, setValue] = React.useState('home');
 
 
@@ -32,11 +34,11 @@ export const UserPage = () => {
                 <div className="userPageHeaderAvatar">
                     <Avatar
                         style={{margin: "0 auto"}}
-                        src={'https://avatars0.githubusercontent.com/u/36710059?s=460&u=2032a7eff0aabfcb796a018cf23c4b85a1131dd0&v=4'}/>
+                        src={currentUser && currentUser.photoURL}/>
                 </div>
                 <div className="userPageHeaderInformation">
                     <div className="userPageHeaderInformationSettingBlock userPageHeaderButton">
-                        <h2>krav_yura</h2>
+                        <h2>{currentUser && currentUser.nickName}</h2>
                         <button>Редагувати профіль</button>
                         <div>
                             <IconButton style={{padding: 5}}>

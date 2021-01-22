@@ -28,7 +28,7 @@ export const PostListItem = props => {
                 <div className="postMedia">
                     <img
                         src={post.postImg}
-                        alt="image"
+                        alt="post"
                     />
                 </div>
                 <div className="postFooter">

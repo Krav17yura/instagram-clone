@@ -12,9 +12,8 @@ export const SignUpPage = (props) => {
 
     const handleSubmit = values => {
         const {history} = props;
-        dispatch(signup(values))
-            .then(() => history.push('/home'))
-            .catch((e) => console.log(e))
+        const {email, password, fullName, logoUrl, nickName} = values
+        dispatch(signup({email, password, fullName, logoUrl, nickName, history}))
     }
 
 

@@ -1,12 +1,15 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+
 import Dialog from '@material-ui/core/Dialog';
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
+
+import {Link} from "react-router-dom";
+
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 import './style.css'
-import {IconButton, makeStyles} from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import {Link} from "react-router-dom";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 
 const useStyle = makeStyles(() => ({
@@ -17,15 +20,12 @@ const useStyle = makeStyles(() => ({
     }
 }))
 
-
 export const ModalPost = (props) => {
     const classes = useStyle();
     const {user, isOpen, handleClose} = props
 
-
     return (
         <div>
-
             <Dialog
                 open={isOpen}
                 onClose={handleClose}
