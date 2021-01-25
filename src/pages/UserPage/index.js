@@ -6,7 +6,7 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 
 
-import {Link} from "react-router-dom";
+import  {Link, Route} from "react-router-dom";
 
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import LiveTvOutlinedIcon from '@material-ui/icons/LiveTvOutlined';
@@ -14,13 +14,15 @@ import GridOnOutlinedIcon from '@material-ui/icons/GridOnOutlined';
 import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {Footer} from "../../components/Footer";
 import {ProfileStatList} from "../../components/ProfileStatList";
 import {UserPagePostList} from "../../components/UserPagePostList";
 
 import './style.css'
+import AppError from "../../components/AppError";
+
 
 
 export const UserPage = () => {
@@ -45,12 +47,14 @@ export const UserPage = () => {
                                 <SettingsOutlinedIcon fontSize="small" style={{fontSize: 30}}/>
                             </IconButton>
                         </div>
+
                     </div>
                     <div className="userPageHeaderInformationEditProfileButton userPageHeaderButton">
                         <button>
                             Редагувати профіль
                         </button>
                     </div>
+
                     <div className="profileStatListContainer">
                         <ProfileStatList postCount={9} readersCount={144} followCount={114}/>
                     </div>
@@ -67,13 +71,24 @@ export const UserPage = () => {
                         onChange={(event, newValue) => setValue(newValue)}
                         style={{backgroundColor: 'rgb(250,250,250)', borderTop: "1px solid rgb(219,219,219)"}}
                     >
-                        <BottomNavigationAction value="home" style={{minWidth: '30px'}} icon={<GridOnOutlinedIcon/>} component={Link} to={'/home/user'}/>
-                        <BottomNavigationAction value="favorites" style={{minWidth: '30px'}} icon={<LiveTvOutlinedIcon/>} component={Link} to={'/home/user'}/>
-                        <BottomNavigationAction value="nearby" style={{minWidth: '30px'}} icon={<BookmarkBorderOutlinedIcon/>} component={Link} to={'/home/user'}/>
-                        <BottomNavigationAction value="folder" style={{minWidth: '30px'}} icon={<PermContactCalendarOutlinedIcon/>} component={Link} to={'/home/user'}/>
+                        <BottomNavigationAction value="home" style={{minWidth: '30px'}} icon={<GridOnOutlinedIcon/>} component={Link} to={'/home/user/posts'}/>
+                        <BottomNavigationAction value="favorites" style={{minWidth: '30px'}} icon={<LiveTvOutlinedIcon/>} component={Link} to={'/home/user/video'}/>
+                        <BottomNavigationAction value="nearby" style={{minWidth: '30px'}} icon={<BookmarkBorderOutlinedIcon/>} component={Link} to={'/home/user/saved'}/>
+                        <BottomNavigationAction value="folder" style={{minWidth: '30px'}} icon={<PermContactCalendarOutlinedIcon/>} component={Link} to={'/home/user/marked'}/>
                     </BottomNavigation>
                 </div>
-               <UserPagePostList/>
+                <Route exact path={['/home/user/posts', '/home/user'] }>
+                    <UserPagePostList/>
+                </Route>
+                <Route exact path={['/home/user/video', '/home/user/saved', '/home/user/marked']} >
+                     <div className="userPageUnderDevelopmentRoute">
+                         <div>
+                             <AppError/>
+                         </div>
+                         <h3>Ця сторінка наразі знаходиться в розробці</h3>
+                     </div>
+                </Route>
+
             </div>
             <Footer/>
 

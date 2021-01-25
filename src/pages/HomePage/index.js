@@ -14,15 +14,24 @@ import {PostList} from "../../components/PostList";
 import {SideBar} from "../../components/SideBar";
 import {UserHistoryList} from "../../components/UserHistoryList";
 import {Footer} from "../../components/Footer";
+import {AddPostModal} from "../../components/AddPostMoadal";
+import AppError from "../../components/AppError";
 
 
 export const HomePage = () => {
     const dispatch = useDispatch();
+    const [open, setOpen] = React.useState(false);
     const {currentUser} = useSelector(state => state.reUser);
 
-    const handleLogout = () => {
-        dispatch(logout())
-    }
+
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     React.useEffect(() => {
         dispatch(fetchCurrentUser());
@@ -37,13 +46,23 @@ export const HomePage = () => {
                         <UserHistoryList/>
                         <SideBar currentUser={currentUser}/>
                     </div>
+                    <button onClick={handleClickOpen}>Добавить пост</button>
                     <PostList/>
                     <Footer/>
+                    <AddPostModal open={open} handleClose={handleClose}/>
                 </div>
             </Route>
-            <Route exact path={'/home/user'} component={UserPage}/>
+            <Route  path={'/home/user'} component={UserPage}/>
+            <Route path={['/home/message', '/home/recommendation', '/home/favorite']}>
+
+                <div className="HomePageUnderDevelopmentRoute">
+                    <div>
+                        <AppError/>
+                    </div>
+                    <h3>Ця сторінка наразі знаходиться в розробці</h3>
+                </div>
+            </Route>
             <BottomNavigationBar user={currentUser}/>
-            <button onClick={handleLogout}>LogOut</button>
         </div>
     )
 }

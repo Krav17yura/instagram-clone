@@ -1,0 +1,18 @@
+.notFoundPageContainer{
+    display: flex;
+    background-color: #d4e5f3;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+.notFoundPageContainer > h1{
+    color: #394e28;
+    margin-bottom: 0;
+}
+.notFoundPageContainer > a{
+    color: #a22929;
+    font-size: 18px;
+    font-weight: 700;
+}

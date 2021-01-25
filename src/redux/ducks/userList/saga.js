@@ -7,17 +7,12 @@ import {selectCurrentUser} from "../user/selectors";
 export function* getUserListRequest(){
     try {
         let user = yield select(selectCurrentUser)
-        console.log(user)
         let data = [];
         yield put(getUsersRequest())
-
-
         yield projectFirestore.collection('users').get().then((querySnapshot) => {
-            querySnapshot.forEach(doc => data.push(doc.data()))
+            querySnapshot.forEach(doc => (doc.data().id !== user.uid)? data.push(doc.data()) : null)
         })
         yield put(getUsersSuccess(data))
-
-
     }catch (e){
       yield put(getUsersError(e))
     }

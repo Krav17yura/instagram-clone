@@ -5,30 +5,28 @@ import {UserHistoryListItem} from "./UserHistoryListItem";
 
 import './style.css'
 import {useSelector} from "react-redux";
+import {AppLoading} from "../AppLoading";
+import AppError from "../AppError";
 
 
 export const UserHistoryList = () => {
-    const userList = useSelector(state => state.reUserList.userList)
+    const {userList, getUserListInProgress, getUserListError} = useSelector(state => state.reUserList)
+
     return (
         <div className={'mainSideHomePage'}>
             <div className="userHistoryBlock">
                 <ul className="userHistoryList">
+                    {!getUserListError ? <>
+                        {getUserListInProgress ? <>
+                            {userList && userList.map(item => (
+                                <UserHistoryListItem
+                                    key={item.id}
+                                    {...item}
+                                />
+                            ))}
+                        </> : <AppLoading/>}
 
-                    {userList && userList.map(item => (
-                        <UserHistoryListItem
-                            key={item.id}
-                            {...item}
-                        />
-                    ))}
-
-                    <li className={'userHistoryListItem'}>
-                        <Avatar style={{width: 55, height: 55}}/>
-                        <span>dank__holm</span>
-                    </li>
-                    <li className={'userHistoryListItem'}>
-                        <Avatar style={{width: 55, height: 55}}/>
-                        <span>mark_druk</span>
-                    </li>
+                    </> : <AppError/>}
                 </ul>
             </div>
         </div>

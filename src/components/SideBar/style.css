@@ -1,6 +1,6 @@
 .sideBarHomePage {
     max-width: 410px;
-    height:100%;
+    min-height:100vh;
     padding: 20px 0;
     position: absolute;
     right: 0;
@@ -8,6 +8,7 @@
 
 .sideBarContainer {
     position: sticky;
+    width: 100%;
     top: 106px;
 }
 
