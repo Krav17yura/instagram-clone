@@ -16,22 +16,19 @@ import {UserHistoryList} from "../../components/UserHistoryList";
 import {Footer} from "../../components/Footer";
 import {AddPostModal} from "../../components/AddPostMoadal";
 import AppError from "../../components/AppError";
+import {toggleAddPostModal} from "../../redux/ducks/posts/actionCreators";
 
 
 export const HomePage = () => {
     const dispatch = useDispatch();
-    const [open, setOpen] = React.useState(false);
     const {currentUser} = useSelector(state => state.reUser);
+    const {isOpenAddPostModal} = useSelector(state => state.rePosts)
 
-
-
-    const handleClickOpen = () => {
-        setOpen(true);
+    const toggleAddModalStatus = value => {
+        dispatch(toggleAddPostModal(value))
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+
 
     React.useEffect(() => {
         dispatch(fetchCurrentUser());
@@ -46,10 +43,10 @@ export const HomePage = () => {
                         <UserHistoryList/>
                         <SideBar currentUser={currentUser}/>
                     </div>
-                    <button onClick={handleClickOpen}>Добавить пост</button>
+                    <button onClick={() => toggleAddModalStatus(true)}>Добавить пост</button>
                     <PostList/>
                     <Footer/>
-                    <AddPostModal open={open} handleClose={handleClose}/>
+                    <AddPostModal open={isOpenAddPostModal} handleClose={() => toggleAddModalStatus(false)} />
                 </div>
             </Route>
             <Route  path={'/home/user'} component={UserPage}/>

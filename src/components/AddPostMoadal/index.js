@@ -6,6 +6,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import './style.css'
 
 import {UploadPostForm} from "../forms/UploadPostForm";
+import {addPost} from "../../redux/ducks/posts/actionCreators";
+import {useDispatch, useSelector} from "react-redux";
 
 const useStyle = makeStyles(() => ({
     dialog: {
@@ -16,25 +18,34 @@ const useStyle = makeStyles(() => ({
 }))
 
 export const AddPostModal = props => {
+    const {currentUser} = useSelector(state => state.reUser)
+    const {addPostInProgress, addPostError} = useSelector(state => state.rePosts)
+    const dispatch = useDispatch();
     const classes = useStyle();
     const {open, handleClose} = props
+
+
+    const handleSubmitAddPostForm = value => {
+        const {description, picture} = value
+        dispatch(addPost({description, picture, currentUser}))
+    }
 
     return (
         <div>
             <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={() => handleClose(false)}
                 aria-labelledby="responsive-dialog-title"
                 className={classes.dialog}
             >
                 <div className={'addPostModalHeaderBlock'}>
                     <DialogTitle id="responsive-dialog-title">{"Додати новий пост"}</DialogTitle>
-                    <IconButton style={{color: 'white'}}>
+                    <IconButton style={{color: 'white'}} onClick={() => handleClose(false)}>
                         <CloseIcon/>
                     </IconButton>
                 </div>
                 <div className="addPostModalContentBlock">
-                    <UploadPostForm/>
+                    <UploadPostForm onSubmit={handleSubmitAddPostForm} inProgress={addPostInProgress} onError={addPostError}/>
                 </div>
             </Dialog>
         </div>
