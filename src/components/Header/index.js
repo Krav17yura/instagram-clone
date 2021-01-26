@@ -7,7 +7,7 @@ import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Avatar from "@material-ui/core/Avatar";
-import {Link, NavLink, Switch} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {HeaderNavigationListItem} from "./HeaderNavigationListItem";
 import IconButton from "@material-ui/core/IconButton";
 import {logout} from "../../redux/ducks/auth/actionCreator";

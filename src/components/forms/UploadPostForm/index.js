@@ -22,6 +22,7 @@ const AddPostSchema = yup.object().shape({
             "fileFormat",
             "Unsupported Format",
             (value) => {
+                console.log(value)
                 return value && SUPPORTED_FORMATS.includes(value[0].type)
             }
         )
@@ -39,7 +40,8 @@ const AddPostSchema = yup.object().shape({
 export const UploadPostForm = props => {
     const {onSubmit, inProgress, onError} = props
     const {register, handleSubmit, errors, getValues} = useForm(
-        {resolver: yupResolver(AddPostSchema), mode: "onChange", reValidateMode: 'onChange'}
+        {resolver: yupResolver(AddPostSchema), mode: "onChange", reValidateMode: 'onChange', defaultValues: {description: '', picture: null}}
+
     );
 
     return (

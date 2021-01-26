@@ -1,6 +1,7 @@
 .mainSideHomePage {
-    margin-right: 30px;
     width: 100%;
+    position: relative;
+
 }
 
 
@@ -8,15 +9,15 @@
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(224, 224, 224);
     border-radius: 10px;
-    width: 100%;
     max-width: 650px;
+    width: 100%;
     height: 110px;
 }
 
 .userHistoryList {
     height: 100%;
     list-style-type: none;
-    max-width: 100%;
+
     margin: 0;
     padding: 0;
     display: flex;

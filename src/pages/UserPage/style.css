@@ -1,7 +1,11 @@
 .userPageContainer {
     max-width: 1000px;
     margin: 0 auto;
+    min-height: 100%
+}
 
+.userPageContent{
+    min-height: calc(100vh - 350px);
 }
 
 .userPageHeader {
@@ -34,6 +38,7 @@
     color: rgb(91, 91, 91);
     line-height: 32px;
     margin: -6px 25px -6px 0;
+
 }
 
 
@@ -107,6 +112,9 @@
 
     .userPageNavigationContainer {
         margin-top: 0;
+    }
+    .userPageHeaderInformationSettingBlock > h2{
+        font-size: 18px;
     }
 }
 

@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {SideBarRecommendationListItem} from "./sideBarRecommendationListItem";
 import AppError from "../../AppError";
 import {AppLoading} from "../../AppLoading";
+import {Link} from "react-router-dom";
 
 
 export const SideBarRecommendationList = () => {
@@ -13,7 +14,8 @@ export const SideBarRecommendationList = () => {
                 {getUserListInProgress ? <>
                     <div className="recommendationTitle">
                         <span>Рекомендації для вас</span>
-                        <a href="#">Переглянути всіх</a>
+
+                        <Link to={'/home'}>Переглянути всіх</Link>
                     </div>
                     <ul className="recommendationList">
                         {userList && userList.map((item) => (

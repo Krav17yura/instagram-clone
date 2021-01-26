@@ -1,7 +1,6 @@
 import React from 'react';
 import {useFormik} from 'formik';
 import './style.css'
-import CircularProgress from "@material-ui/core/CircularProgress";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
@@ -34,7 +33,7 @@ const SearchSchema = Yup.object({
 });
 
 
-export const SearchForm = ({onSubmit, inProgress}) => {
+export const SearchForm = () => {
     const classes = useStyle()
     const formik = useFormik({
         initialValues: {

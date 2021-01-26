@@ -6,7 +6,7 @@
     margin: 0 10px;
 }
 
-.userHistoryListItem > span {
+.userHistoryListItem > a  {
     color: #95a6bb;
     text-align: center;
     font-size: 14px;
@@ -14,4 +14,9 @@
     overflow: hidden;
     width: 100%;
     text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.userHistoryListItem > a:hover{
+    text-decoration: underline;
 }

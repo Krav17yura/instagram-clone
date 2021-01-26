@@ -20,16 +20,15 @@ export const SideBar = ({currentUser}) => {
                             <div className={'sideBarUser'}>
                                 <Avatar style={{width: 60, height: 60}} src={currentUser && currentUser.photoURL}/>
                                 <div className={'sideBarUserInfo'}>
-                                    <Link to={'/home/currentUser'}>{currentUser && currentUser.nickName}</Link>
+                                    <Link to={currentUser ? `/home/currentUser/${currentUser.uid}` : '/home/currentUser'}>{currentUser && currentUser.nickName}</Link>
                                     <span>{currentUser && currentUser.displayName}</span>
                                 </div>
                             </div>
                             <div className={'sideBarLink'}>
-                                <Link to={'/home/currentUser'}>Перейти</Link>
+                                <Link to={currentUser ? `/home/currentUser/${currentUser.uid}` : '/home/currentUser'}>Перейти</Link>
                             </div>
                         </>
                         : <AppLoading/>}
-
                 </div>
                 <SideBarRecommendationList/>
             </div>

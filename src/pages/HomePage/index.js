@@ -29,7 +29,6 @@ export const HomePage = () => {
     };
 
 
-
     React.useEffect(() => {
         dispatch(fetchCurrentUser());
         dispatch(getPosts())
@@ -40,19 +39,21 @@ export const HomePage = () => {
             <Header user={currentUser}/>
             <Route exact path={'/home'}>
                 <div className="homePageContainer">
-                    <div className={'homePageContent'}>
-                        <UserHistoryList/>
+                    <div className={'homePageContentWrapper'}>
                         <SideBar currentUser={currentUser}/>
+
+                        <UserHistoryList/>
+
+                        <div className="homePageAddPostButtonContainer">
+                            <button onClick={() => toggleAddModalStatus(true)}>Добавить пост</button>
+                        </div>
+                        <PostList/>
                     </div>
-                    <div className="homePageAddPostButtonContainer">
-                        <button onClick={() => toggleAddModalStatus(true)}>Добавить пост</button>
-                    </div>
-                    <PostList/>
                     <Footer/>
-                    <AddPostModal open={isOpenAddPostModal} handleClose={() => toggleAddModalStatus(false)} />
+                    <AddPostModal open={isOpenAddPostModal} handleClose={() => toggleAddModalStatus(false)}/>
                 </div>
             </Route>
-            <Route  path={'/home/currentUser/:id'} component={UserPage}/>
+            <Route path={'/home/currentUser/:id'} component={UserPage}/>
             <Route path={['/home/message', '/home/recommendation', '/home/favorite']}>
 
                 <div className="HomePageUnderDevelopmentRoute">

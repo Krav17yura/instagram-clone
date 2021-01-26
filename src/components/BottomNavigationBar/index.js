@@ -24,7 +24,7 @@ export const BottomNavigationBar = ({user}) => {
                 <BottomNavigationAction value="favorites" style={{minWidth: '30px'}} icon={<SendOutlinedIcon/>} component={Link} to={'/home/message'}/>
                 <BottomNavigationAction value="nearby" style={{minWidth: '30px'}} icon={<ExploreOutlinedIcon/>} component={Link} to={'/home/recommendation'}/>
                 <BottomNavigationAction value="folder" style={{minWidth: '30px'}} icon={<FavoriteBorderOutlinedIcon/>} component={Link} to={'/home/favorite'}/>
-                <BottomNavigationAction value="user" style={{minWidth: '30px'}} icon={<Avatar src={user && user.photoURL} style={{width: 27, height: 27}}/>}  component={Link} to={'/home/currentUser'}/>
+                <BottomNavigationAction value="user" style={{minWidth: '30px'}} icon={<Avatar src={user && user.photoURL} style={{width: 27, height: 27}}/>}  component={Link} to={user ? `/home/currentUser/${user.uid}` : '/home/currentUser'}/>
             </BottomNavigation>
         </div>
     );

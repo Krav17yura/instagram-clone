@@ -5,16 +5,18 @@ import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import './style.css'
 
 export const UserPagePostListItem = props => {
-    const {handleClickOpen, comment, likes, photo} = props
-    return(
+    const {handleClickOpen, photo, postId} = props
+    return (
         <li className="userPagePostListItem">
-            <div className="userPagePostListItemContainer" onClick={handleClickOpen}>
-                <img
-                    src={photo}
-                    alt="img"/>
+            <div className="userPagePostListItemContainer" onClick={() => handleClickOpen(postId)}>
+                <div className={'userPagePostListItemImgContainer'}>
+                    <img
+                        src={photo}
+                        alt="img"/>
+                </div>
                 <div className="userPagePostListItemContainerBackdrop">
-                    <span><FavoriteIcon/> {likes} </span>
-                    <span><ChatBubbleIcon/> {comment} </span>
+                    <span><FavoriteIcon/> 55 </span>
+                    <span><ChatBubbleIcon/> 1 </span>
                 </div>
             </div>
         </li>

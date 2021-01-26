@@ -6,6 +6,9 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ModeCommentOutlinedIcon from "@material-ui/icons/ModeCommentOutlined";
 import SendOutlinedIcon from "@material-ui/icons/SendOutlined";
 import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
+import {Link} from "react-router-dom";
+
+import './style.css'
 
 export const PostListItem = props => {
     const {description, urlPic, currentUser} = props
@@ -17,7 +20,7 @@ export const PostListItem = props => {
                         <Avatar
                             src={currentUser.photoURL}
                         />
-                        <a href={'#'}>{currentUser.nickName}</a>
+                        <Link to={`/home/currentUser/${currentUser.uid}`}>{currentUser.nickName}</Link>
                     </div>
                     <div className="postHeaderButton">
                         <IconButton size={"small"}>
@@ -56,8 +59,8 @@ export const PostListItem = props => {
                         10 вподобань
                     </div>
                     <div className="postDescription">
-                        <a href={'#'}>{currentUser.nickName } </a>
-                        {description}
+                        <Link to={`/home/currentUser/${currentUser.uid}`}>{currentUser.nickName}</Link>
+                        { description}
                     </div>
                     <div className="postCommentBlock">
                         <form>

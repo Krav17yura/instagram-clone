@@ -1,15 +1,17 @@
 .sideBarHomePage {
     max-width: 410px;
-    min-height:100vh;
     padding: 20px 0;
     position: absolute;
     right: 0;
+    min-height: 100%;
+    z-index: 1;
 }
 
 .sideBarContainer {
     position: sticky;
     width: 100%;
-    top: 106px;
+    height: 100%;
+    top: 117px;
 }
 
 .sideBarHeader {

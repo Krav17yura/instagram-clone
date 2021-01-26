@@ -6,6 +6,7 @@
 .modalPostImgContainer {
     width: 40vw;
     max-width: 600px;
+    max-height: 600px;
 }
 
 .modalPostImgContainer > img{
@@ -56,6 +57,11 @@
 }
 
 
+@media(max-width: 700px ) {
+    .modalPostCommentContainer{
+        display: none;
+    }
+}
 
 
 

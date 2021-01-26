@@ -1,4 +1,4 @@
-import {showCurrentUserSuccess} from "../currentUser/actionCreator";
+
 import {
     APP_LOGIN, APP_LOGOUT, APP_SIGNUP,
     AUTH_INFO_SUCCESS,

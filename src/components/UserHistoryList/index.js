@@ -1,6 +1,5 @@
 import React from "react";
 
-import Avatar from "@material-ui/core/Avatar";
 import {UserHistoryListItem} from "./UserHistoryListItem";
 
 import './style.css'
@@ -24,6 +23,7 @@ export const UserHistoryList = () => {
                                     {...item}
                                 />
                             ))}
+
                         </> : <AppLoading/>}
 
                     </> : <AppError/>}
