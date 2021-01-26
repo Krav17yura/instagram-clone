@@ -1,4 +1,4 @@
-import {showCurrentUserSuccess} from "../user/actionCreator";
+import {showCurrentUserSuccess} from "../currentUser/actionCreator";
 import {
     APP_LOGIN, APP_LOGOUT, APP_SIGNUP,
     AUTH_INFO_SUCCESS,
@@ -90,7 +90,7 @@ export const logout = () => ({
 //     const {email, password, fullName, logoUrl} = params;
 //     dispatch(signupRequest());
 //     return firebase.auth().createUserWithEmailAndPassword(email, password)
-//         .then(res => res.user.updateProfile({displayName: fullName, photoURL: logoUrl}))
+//         .then(res => res.currentUser.updateProfile({displayName: fullName, photoURL: logoUrl}))
 //         .then(() => dispatch(signupSuccess()))
 //         .catch(e => {
 //             dispatch(signupError(e));

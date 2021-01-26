@@ -10,7 +10,7 @@ import {
     signupRequest,
     signupSuccess
 } from "./actionCreator";
-import {showCurrentUserSuccess} from "../user/actionCreator";
+import {showCurrentUserSuccess} from "../currentUser/actionCreator";
 
 
 export function* appLoginRequest({payload}) {

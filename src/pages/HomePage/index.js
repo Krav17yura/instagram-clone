@@ -1,7 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCurrentUser} from "../../redux/ducks/user/actionCreator";
-import {logout} from "../../redux/ducks/auth/actionCreator";
+import {fetchCurrentUser} from "../../redux/ducks/currentUser/actionCreator";
 import {Route} from "react-router-dom";
 
 
@@ -16,13 +15,14 @@ import {UserHistoryList} from "../../components/UserHistoryList";
 import {Footer} from "../../components/Footer";
 import {AddPostModal} from "../../components/AddPostMoadal";
 import AppError from "../../components/AppError";
-import {toggleAddPostModal} from "../../redux/ducks/posts/actionCreators";
+import {toggleAddPostModal} from "../../redux/ducks/addPost/actionCreators";
+import {getPosts} from "../../redux/ducks/postList/actionCreators";
 
 
 export const HomePage = () => {
     const dispatch = useDispatch();
     const {currentUser} = useSelector(state => state.reUser);
-    const {isOpenAddPostModal} = useSelector(state => state.rePosts)
+    const {isOpenAddPostModal} = useSelector(state => state.reAddPost)
 
     const toggleAddModalStatus = value => {
         dispatch(toggleAddPostModal(value))
@@ -32,6 +32,7 @@ export const HomePage = () => {
 
     React.useEffect(() => {
         dispatch(fetchCurrentUser());
+        dispatch(getPosts())
     }, [dispatch]);
 
     return (
@@ -43,13 +44,15 @@ export const HomePage = () => {
                         <UserHistoryList/>
                         <SideBar currentUser={currentUser}/>
                     </div>
-                    <button onClick={() => toggleAddModalStatus(true)}>Добавить пост</button>
+                    <div className="homePageAddPostButtonContainer">
+                        <button onClick={() => toggleAddModalStatus(true)}>Добавить пост</button>
+                    </div>
                     <PostList/>
                     <Footer/>
                     <AddPostModal open={isOpenAddPostModal} handleClose={() => toggleAddModalStatus(false)} />
                 </div>
             </Route>
-            <Route  path={'/home/user'} component={UserPage}/>
+            <Route  path={'/home/currentUser/:id'} component={UserPage}/>
             <Route path={['/home/message', '/home/recommendation', '/home/favorite']}>
 
                 <div className="HomePageUnderDevelopmentRoute">

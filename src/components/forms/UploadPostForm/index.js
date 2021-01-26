@@ -14,7 +14,7 @@ const SUPPORTED_FORMATS = [
 const AddPostSchema = yup.object().shape({
     description: yup.string()
         .min(2, 'Too Short!')
-        .max(60, 'Too Long!')
+        .max(200, 'Too Long!')
         .required('Required'),
     picture: yup.mixed()
         .required('Required')
@@ -44,6 +44,7 @@ export const UploadPostForm = props => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={'uploadPostForm'}>
+            {onError ? <span>{onError}</span> : null}
             <div className="formGroup">
                 <input type="text" ref={register} name={'description'} placeholder={'Опис для фотографії'}/>
                 {errors.description && <p>{errors.description.message}</p>}

@@ -10,12 +10,12 @@ export const SideBarRecommendationListItem = props => {
                 <Avatar style={{width: 40, height: 40}}
                         src={photo}/>
                 <div className={'sideBarUserInfo'}>
-                    <Link to={'/home/user'}>{nickName}</Link>
+                    <Link to={'/home/currentUser'}>{nickName}</Link>
                     <span>Новий користувач Instagram</span>
                 </div>
             </div>
             <div className={'sideBarLink'}>
-                <Link to={'/home/user'}>Стежити</Link>
+                <Link to={'/home/currentUser'}>Стежити</Link>
             </div>
         </li>
     )

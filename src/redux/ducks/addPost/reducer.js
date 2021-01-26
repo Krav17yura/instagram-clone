@@ -1,6 +1,6 @@
 import {ADD_POST_ERROR, ADD_POST_REQUEST, ADD_POST_SUCCESS, IS_OPEN_ADD_POST_MODAL} from "./actionTypes";
 
-const rePosts = (state = {
+const reAddPost = (state = {
     addPostInProgress: false,
     addPostError: null,
     isOpenAddPostModal: false
@@ -36,4 +36,4 @@ const rePosts = (state = {
     }
 };
 
-export default rePosts;
+export default reAddPost;

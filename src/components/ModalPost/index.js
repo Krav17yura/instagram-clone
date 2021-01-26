@@ -42,7 +42,7 @@ export const ModalPost = (props) => {
                             <div className={'modalPostUser'}>
                                 <Avatar style={{width: 35, height: 35}} src={user && user.photoURL}/>
                                 <div className={'modalPostUserUserInfo'}>
-                                    <Link to={'/home/user'}>krav_yura</Link>
+                                    <Link to={'/home/currentUser'}>krav_yura</Link>
                                     <span>Епіфан</span>
                                 </div>
                             </div>

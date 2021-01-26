@@ -2,11 +2,12 @@ import {put, takeEvery, call} from "redux-saga/effects";
 import {APP_ADD_POST} from "./actionTypes";
 import {addPostError, addPostRequest, addPostSuccess, toggleAddPostModal} from "./actionCreators";
 import {projectFirestore, projectStorage, timestamp} from "../../../firebase-config";
+import {getPosts} from "../postList/actionCreators";
 
 export function* appAddPostRequest({payload}) {
     const {description, picture, currentUser} = payload
     const storageRef = projectStorage.ref(picture[0].name)
-    const collectionRef = projectFirestore.collection('images');
+    const collectionRef = projectFirestore.collection('posts');
 
     try {
         yield put(addPostRequest())
@@ -15,6 +16,7 @@ export function* appAddPostRequest({payload}) {
         const createdAt = yield timestamp();
         yield collectionRef.add({ urlPic, createdAt, description, currentUser });
         yield put(addPostSuccess())
+        yield put(getPosts())
         yield put(toggleAddPostModal(false))
 
     } catch (e) {
@@ -22,6 +24,6 @@ export function* appAddPostRequest({payload}) {
     }
 }
 
-export function* postsSaga() {
+export function* addPost() {
     yield takeEvery(APP_ADD_POST, appAddPostRequest)
 }

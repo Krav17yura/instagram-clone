@@ -1,6 +1,6 @@
 import {SHOW_CURRENT_USER_REQUEST, SHOW_CURRENT_USER_SUCCESS} from "./actionTypes";
 
-const reUser = (state = {
+const reCurrentUser = (state = {
     currentUser: null
 }, action) => {
     switch (action.type) {
@@ -16,4 +16,4 @@ const reUser = (state = {
     }
 };
 
-export default reUser;
+export default reCurrentUser;

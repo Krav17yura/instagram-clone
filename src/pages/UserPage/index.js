@@ -6,7 +6,7 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 
 
-import  {Link, Route} from "react-router-dom";
+import  {Link, Route, useParams} from "react-router-dom";
 
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import LiveTvOutlinedIcon from '@material-ui/icons/LiveTvOutlined';
@@ -26,8 +26,12 @@ import AppError from "../../components/AppError";
 
 
 export const UserPage = () => {
+    const params = useParams();
+
+    const {id} = params
     const {currentUser} = useSelector(state => state.reUser);
     const [value, setValue] = React.useState('home');
+    console.log(id)
 
 
     return (
@@ -71,16 +75,16 @@ export const UserPage = () => {
                         onChange={(event, newValue) => setValue(newValue)}
                         style={{backgroundColor: 'rgb(250,250,250)', borderTop: "1px solid rgb(219,219,219)"}}
                     >
-                        <BottomNavigationAction value="home" style={{minWidth: '30px'}} icon={<GridOnOutlinedIcon/>} component={Link} to={'/home/user/posts'}/>
-                        <BottomNavigationAction value="favorites" style={{minWidth: '30px'}} icon={<LiveTvOutlinedIcon/>} component={Link} to={'/home/user/video'}/>
-                        <BottomNavigationAction value="nearby" style={{minWidth: '30px'}} icon={<BookmarkBorderOutlinedIcon/>} component={Link} to={'/home/user/saved'}/>
-                        <BottomNavigationAction value="folder" style={{minWidth: '30px'}} icon={<PermContactCalendarOutlinedIcon/>} component={Link} to={'/home/user/marked'}/>
+                        <BottomNavigationAction value="home" style={{minWidth: '30px'}} icon={<GridOnOutlinedIcon/>} component={Link} to={`/home/currentUser/${id}/addPost`}/>
+                        <BottomNavigationAction value="favorites" style={{minWidth: '30px'}} icon={<LiveTvOutlinedIcon/>} component={Link} to={`/home/currentUser/${id}/video`}/>
+                        <BottomNavigationAction value="nearby" style={{minWidth: '30px'}} icon={<BookmarkBorderOutlinedIcon/>} component={Link} to={`/home/currentUser/${id}/saved`}/>
+                        <BottomNavigationAction value="folder" style={{minWidth: '30px'}} icon={<PermContactCalendarOutlinedIcon/>} component={Link} to={`/home/currentUser/${id}/marked`}/>
                     </BottomNavigation>
                 </div>
-                <Route exact path={['/home/user/posts', '/home/user'] }>
+                <Route exact path={[`/home/currentUser/${id}/addPost`, `/home/currentUser/${id}`] }>
                     <UserPagePostList/>
                 </Route>
-                <Route exact path={['/home/user/video', '/home/user/saved', '/home/user/marked']} >
+                <Route exact path={[`/home/currentUser/${id}/video`, `/home/currentUser/${id}/saved`, `/home/currentUser/${id}/marked`]} >
                      <div className="userPageUnderDevelopmentRoute">
                          <div>
                              <AppError/>

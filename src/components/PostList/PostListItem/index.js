@@ -8,16 +8,16 @@ import SendOutlinedIcon from "@material-ui/icons/SendOutlined";
 import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
 
 export const PostListItem = props => {
-    const {userNickName, userPhotoUrl, post} = props
+    const {description, urlPic, currentUser} = props
     return(
         <li className="postListItem">
             <div className="post">
                 <div className="postHeader">
                     <div className='postHeaderUserInfo'>
                         <Avatar
-                            src={userPhotoUrl}
+                            src={currentUser.photoURL}
                         />
-                        <a href={'#'}>{userNickName}</a>
+                        <a href={'#'}>{currentUser.nickName}</a>
                     </div>
                     <div className="postHeaderButton">
                         <IconButton size={"small"}>
@@ -27,7 +27,7 @@ export const PostListItem = props => {
                 </div>
                 <div className="postMedia">
                     <img
-                        src={post.postImg}
+                        src={urlPic}
                         alt="post"
                     />
                 </div>
@@ -53,11 +53,11 @@ export const PostListItem = props => {
                         </IconButton>
                     </div>
                     <div className="postCountView">
-                        {post.like} вподобань
+                        10 вподобань
                     </div>
                     <div className="postDescription">
-                        <a href={'#'}>{userNickName}</a>
-                        {post.description}
+                        <a href={'#'}>{currentUser.nickName } </a>
+                        {description}
                     </div>
                     <div className="postCommentBlock">
                         <form>

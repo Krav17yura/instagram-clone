@@ -25,15 +25,48 @@
     }
 }
 
-.HomePageUnderDevelopmentRoute{
+.HomePageUnderDevelopmentRoute {
     min-height: 81vh;
     margin: 30px 0;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
+
 .HomePageUnderDevelopmentRoute > h3 {
     color: #303945;
+}
+
+.homePageAddPostButtonContainer {
+    padding: 10px;
+    display: flex;
+    max-width: 650px;
+    align-items: center;
+    justify-content: center;
+}
+
+.homePageAddPostButtonContainer > button{
+    background: #637373;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 4px;
+
+}
+
+.homePageAddPostButtonContainer > button:hover {
+    background: #153f56;
+}
+
+.homePageAddPostButtonContainer > button:active{
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
 }
 
 

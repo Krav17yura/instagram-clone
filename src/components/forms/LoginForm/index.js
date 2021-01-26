@@ -16,7 +16,7 @@ const printErrorMessage = error => {
     switch (error.code) {
         case 'auth/wrong-password':
             return 'Wrong credentials';
-        case 'auth/user-not-found':
+        case 'auth/currentUser-not-found':
             return 'User does not exist';
         case 'auth/too-many-requests':
             return 'User blocked. Restore password or try again later';

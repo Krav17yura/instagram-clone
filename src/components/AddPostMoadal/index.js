@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import './style.css'
 
 import {UploadPostForm} from "../forms/UploadPostForm";
-import {addPost} from "../../redux/ducks/posts/actionCreators";
+import {addPost} from "../../redux/ducks/addPost/actionCreators";
 import {useDispatch, useSelector} from "react-redux";
 
 const useStyle = makeStyles(() => ({
@@ -19,7 +19,7 @@ const useStyle = makeStyles(() => ({
 
 export const AddPostModal = props => {
     const {currentUser} = useSelector(state => state.reUser)
-    const {addPostInProgress, addPostError} = useSelector(state => state.rePosts)
+    const {addPostInProgress, addPostError} = useSelector(state => state.reAddPost)
     const dispatch = useDispatch();
     const classes = useStyle();
     const {open, handleClose} = props

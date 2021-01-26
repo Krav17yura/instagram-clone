@@ -1,14 +1,16 @@
 import {combineReducers} from "redux";
 import reAuth from "./ducks/auth/reducer";
-import reUser from "./ducks/user/reducer";
+import reUser from "./ducks/currentUser/reducer";
 import reUserList from "./ducks/userList/reducer";
-import rePosts from "./ducks/posts/reducer";
+import rePostList from "./ducks/postList/reducer";
+import reAddPost from "./ducks/addPost/reducer";
 
 const rootReducer = combineReducers({
     reAuth,
     reUser,
     reUserList,
-    rePosts
+    rePostList,
+    reAddPost
 })
 
 export default rootReducer
