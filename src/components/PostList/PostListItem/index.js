@@ -60,7 +60,8 @@ export const PostListItem = props => {
                     </div>
                     <div className="postDescription">
                         <Link to={`/home/currentUser/${currentUser.uid}`}>{currentUser.nickName}</Link>
-                        { description}
+                        <span>{ description}</span>
+
                     </div>
                     <div className="postCommentBlock">
                         <form>

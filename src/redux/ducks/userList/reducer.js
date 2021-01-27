@@ -3,6 +3,7 @@ import {GET_USER_LIST_ERROR, GET_USER_LIST_REQUEST, GET_USER_LIST_SUCCESS} from 
 
 const reUserList = (state = {
     userList: [],
+    recommendationUserList: [],
     getUserListInProgress: false,
     getUserListError: null
 }, action) => {
@@ -22,6 +23,7 @@ const reUserList = (state = {
         case GET_USER_LIST_SUCCESS:
             return {
                 userList: action.payload,
+                recommendationUserList: action.payload.slice(0, 5),
                 getUserListInProgress: true,
                 getUserListError: null
             }

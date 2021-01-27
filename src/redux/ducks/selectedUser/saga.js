@@ -1,4 +1,4 @@
-import {put, takeEvery} from "redux-saga/effects";
+import {put, takeEvery, call} from "redux-saga/effects";
 import {APP_GET_SELECTED_USER, APP_GET_SELECTED_USER_POST, APP_GET_SELECTED_USER_POST_LIST} from "./actionTypes";
 import {
     getSelectedUserError,
@@ -33,7 +33,11 @@ export function* appGetSelectedUserPostList({payload}) {
     try {
         yield put(getSelectedUserPostListRequest())
         yield collectionRef.where('currentUserId', '==', payload).get().then((querySnapshot) => {
-            querySnapshot.forEach(doc => selectedUserPostList.unshift(doc.data()))
+            querySnapshot.forEach(doc => {
+                const {description, createdAt, currentUser, urlPic} = doc.data()
+                const postId = doc.id
+                selectedUserPostList.unshift({description, createdAt, currentUser, urlPic, postId})
+            })
         })
         yield put(getSelectedUserPostListSuccess(selectedUserPostList))
     } catch (e) {
@@ -42,13 +46,17 @@ export function* appGetSelectedUserPostList({payload}) {
 }
 
 
+
 export function* appGetSelectedUserPost({payload}) {
+
     const collectionRef = projectFirestore.collection('posts');
     let selectedUserPost = [];
     try {
         yield put(getSelectedUserPostRequest())
-        yield collectionRef.where('postId', '==', payload).get().then((querySnapshot) => {
-            querySnapshot.forEach(doc => selectedUserPost.push(doc.data()))
+        yield collectionRef.doc(payload).get().then((doc) => {
+            const {description, createdAt, currentUser, urlPic} = doc.data()
+            const postId = doc.id
+            selectedUserPost.push({description, createdAt, currentUser, urlPic, postId})
         })
         yield put(getSelectedUserPostSuccess(selectedUserPost))
     } catch (e) {

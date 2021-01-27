@@ -4,21 +4,26 @@ import {getPostsError, getPostsRequest, getPostsSuccess} from "./actionCreators"
 import {projectFirestore} from "../../../firebase-config";
 
 
-export function* appGetPostsRequest(){
+export function* appGetPostsRequest() {
     let postsList = [];
     try {
         yield put(getPostsRequest())
         yield projectFirestore.collection('posts').orderBy('createdAt').get().then((querySnapshot) => {
-            querySnapshot.forEach(doc => postsList.unshift(doc.data()))
+
+            querySnapshot.forEach(doc => {
+                    const {description, createdAt, currentUser, urlPic} = doc.data()
+                    const postId = doc.id
+                    postsList.unshift({description, createdAt, currentUser, urlPic, postId})
+                }
+            )
         })
         yield put(getPostsSuccess(postsList))
-    }
-    catch (e){
+    } catch (e) {
         yield put(getPostsError(e))
     }
 }
 
 
-export function* postListSaga(){
+export function* postListSaga() {
     yield takeEvery(APP_GET_POSTS, appGetPostsRequest)
 }

@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 
 export const SideBarRecommendationList = () => {
-    const {userList, getUserListInProgress, getUserListError} = useSelector(state => state.reUserList)
+    const {recommendationUserList, getUserListInProgress, getUserListError} = useSelector(state => state.reUserList)
     return (
         <div className={'sideBarRecommendationBlock'}>
             {!getUserListError ? <>
@@ -18,7 +18,7 @@ export const SideBarRecommendationList = () => {
                         <Link to={'/home'}>Переглянути всіх</Link>
                     </div>
                     <ul className="recommendationList">
-                        {userList && userList.map((item) => (
+                        {recommendationUserList && recommendationUserList.map((item) => (
                             <SideBarRecommendationListItem
                                 key={item.id}
                                 {...item}

@@ -49,7 +49,7 @@ export const LoginPage = (props) => {
         <div className='loginPage-container'>
             <div className='loginPage-photo__content'>
                 <img
-                    src="http://instagram.u0943681.cp.regruhosting.ru/static/images/homepage/home-phones.png/38825c9d5aa2.png"
+                    src="https://firebasestorage.googleapis.com/v0/b/instagram-clone-4ffec.appspot.com/o/38825c9d5aa2.png?alt=media&token=ab351b3c-a4d4-4655-8cf3-fe7567020804"
                     alt="img"/>
                 <span className={'loginPage-photo__secondary'}>
                       <img src={photoArr[index]}

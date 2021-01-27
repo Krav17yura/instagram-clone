@@ -8,7 +8,7 @@ export function* appAddPostRequest({payload}) {
     const {description, picture, currentUser} = payload
     const storageRef = projectStorage.ref(picture[0].name)
     const collectionRef = projectFirestore.collection('posts');
-    const postId = Math.random().toString(36).substring(2)
+
 
 
     try {
@@ -16,7 +16,7 @@ export function* appAddPostRequest({payload}) {
         yield storageRef.put(picture[0])
         const urlPic = yield storageRef.getDownloadURL()
         const createdAt = yield timestamp();
-        yield collectionRef.add({ urlPic, createdAt, description, currentUser, currentUserId: currentUser.uid, postId });
+        yield collectionRef.add({ urlPic, createdAt, description, currentUser, currentUserId: currentUser.uid });
         yield put(addPostSuccess())
         yield put(getPosts())
         yield put(toggleAddPostModal(false))

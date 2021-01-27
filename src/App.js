@@ -8,7 +8,7 @@ import {NotFoundPage} from "./pages/NotFoundPage";
 
 export const App = () => {
     return (
-       <div  >
+       <div>
            <Switch>
              <Route path={'/signup'} component={SignUpPage}/>
              <Route path={'/login'} component={LoginPage}/>

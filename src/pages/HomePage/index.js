@@ -45,7 +45,7 @@ export const HomePage = () => {
                         <UserHistoryList/>
 
                         <div className="homePageAddPostButtonContainer">
-                            <button onClick={() => toggleAddModalStatus(true)}>Добавить пост</button>
+                            <button onClick={() => toggleAddModalStatus(true)}>Опублікувати пост</button>
                         </div>
                         <PostList/>
                     </div>
